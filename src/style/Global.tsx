@@ -23,9 +23,22 @@ body {
     font-family: 'Osiris'
   }
 
+  .mobile {
+    display: none;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      display: flex;
+    }
+  }
+
+
+
+
+
   .box-shadow {
     box-shadow: 0 0 3px black
   }
+
+
 
   a {
     // color: inherit !important;

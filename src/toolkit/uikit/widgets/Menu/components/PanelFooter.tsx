@@ -13,10 +13,11 @@ import Bottom  from './Bottom'
 interface Props extends PanelProps, PushedProps {}
 
 const Container = styled.div`
-  flex: none;
+  // flex: none;
+  display: flex;
   padding: 8px 4px;
   background-color: ${({ theme }) => theme.nav.background};
-  border-top: solid 2px rgba(133, 133, 133, 0.1);
+  // border-top: solid 2px rgba(133, 133, 133, 0.1);
 `
 
 const SettingsEntry = styled.div`
@@ -57,8 +58,9 @@ const PanelFooter: React.FC<Props> = ({
 
   return (
     <Container>
+
+      <CakePrice cakePriceUsd={cakePriceUsd} />
       {/* <SocialEntry>
-        <CakePrice cakePriceUsd={cakePriceUsd} />
         <SocialLinks />
       </SocialEntry>
       <SettingsEntry>
@@ -68,7 +70,7 @@ const PanelFooter: React.FC<Props> = ({
       {/* <SettingsEntry>
         <LangSelector currentLang={currentLang} langs={langs} setLang={setLang} />
       </SettingsEntry> */}
-      <Bottom />
+      {/* <Bottom /> */}
     </Container>
   )
 }
