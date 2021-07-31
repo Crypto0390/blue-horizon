@@ -6,8 +6,8 @@ import { Theme } from '@material-ui/core';
 
 import {
   HomeIcon, ConnectIcon, FarmIcon, NFTIcon, SwapIcon,
-  SidebarConnect, SidebarConnectBtn, SidebarMoon,
-  Logo, Avatar, LangEN,
+  SidebarConnect, SidebarConnectBtn, SidebarMoon, 
+  Logo, Avatar, LangEN, defaultLogo,
   sidebarBalanceLeft, sidebarDots, bottomLeftIcon, sidebarEllipse,
 } from '../../../../../components/Image'
 
@@ -197,7 +197,7 @@ const Bottom: React.FC = () => {
   return (
     <div className="d-flex flex-column" style={{padding:"10px"}}>
       <div className={classes.sidebarConnectWrapper}>
-        <img className={classes.sidebarMoon} src={SidebarMoon} alt="" />
+        <img className={classes.sidebarMoon} src={defaultLogo} alt="" style={{width:"100px", marginTop:"-10px"}}/>
         <img className={classes.sidebarConnectBottomLeft} src={bottomLeftIcon} alt="" />
         <img className={classes.sidebarConnectTopRight} src={sidebarEllipse} alt="" />
 
@@ -217,7 +217,7 @@ const Bottom: React.FC = () => {
         <img className={classes.balanceLeft} src={sidebarBalanceLeft} alt="balance left" />
         <img className={classes.balanceRight} src={sidebarDots} alt="balance dots" />
         <div className={`card-img-overlay ${classes.balanceWrapper}`}>
-          <img src={SidebarConnect} alt="" />
+          <img src={defaultLogo} alt="" width="50px"/>
           <div className={classes.balance} style={{color: 'white'}}>$15.310</div>
         </div>
       </div>

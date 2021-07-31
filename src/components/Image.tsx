@@ -61,6 +61,7 @@ import sidebarDots from '../assets/images/dots.png'
 import sidebarEllipse from '../assets/images/base/ellipse.png'
 import nftSoldier from '../assets/images/nft/soldier.png'
 import nftBtnSideIcon from '../assets/images/nft/btn-side-icon.png'
+import defaultLogo from '../assets/images/logo.png'
 
 export {
   HomeIcon, ConnectIcon, FarmIcon, NFTIcon, SwapIcon, SidebarMoon, SidebarConnect, SidebarConnectBtn, CommonBtn, Logo, Avatar, LangEN,
@@ -74,5 +75,5 @@ export {
   farmingBackground, farmingTopVertical, farmingMessageImg, farmingToggleBtn,
   swapBackground, sidebarBalanceLeft, sidebarDots, sidebarEllipse,
   HomeArtist, HomeTopDots, HomeTopVertical, HomeBottomDots,
-  nftSoldier, nftBtnSideIcon, 
+  nftSoldier, nftBtnSideIcon, defaultLogo
 }

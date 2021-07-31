@@ -11,6 +11,8 @@ import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import Select, { OptionProps } from './components/Select';
+import LangSelector from './components/LangSelector';
 
 const Wrapper = styled.div`
   position: relative;
@@ -82,6 +84,8 @@ const Menu: React.FC<NavProps> = ({
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
   const { username = "Anne"} = profile;
+
+  console.log('Menu ==> ', isPushed, showMenu);
   useEffect(() => {
     const handleScroll = () => {
       const currentOffset = window.pageYOffset;
@@ -125,7 +129,8 @@ const Menu: React.FC<NavProps> = ({
         />
         {!!login && !!logout && (
           <Flex>
-            <UserBlock account={account} login={login} logout={logout} />
+            <UserBlock account={account} login={login} logout={logout}/>
+            {/* <LangSelector currentLang={currentLang} langs={langs} setLang={setLang} /> */}
             <Text display='inline' ml="10px" mt="5px">{username}</Text>
             {profile && <Avatar profile={profile} />}
           </Flex>
