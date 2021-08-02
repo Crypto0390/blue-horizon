@@ -54,6 +54,10 @@ export interface PanelProps {
   langs: Language[];
   setLang: (lang: Language) => void;
   links: Array<MenuEntry>;
+  account?: string;
+  login?: any;
+  logout?: any;
+
 }
 
 export interface NavProps extends PanelProps {

@@ -68,7 +68,7 @@ const CakePrice: React.FC<Props> = ({ cakePriceUsd }) => {
         >
           {/* <PancakeRoundIcon width="24px" mr="8px" /> */}
           <img src={defaultLogo} alt="" width="50px"/>
-          <Text color="textSubtle" bold ml="10px">{cakePriceUsd?`$${cakePriceUsd.toFixed(3)}`:'$00.000'}</Text>
+          <Text color="text" bold ml="10px">{cakePriceUsd?`$${cakePriceUsd.toFixed(3)}`:'$00.000'}</Text>
         </PriceLink>
       </Wrapper>
       <img src={sidebarDots} alt="balance dots" style={{marginTop:"5px"}}/>
