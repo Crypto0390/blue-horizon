@@ -19,11 +19,9 @@ const PageHearder = styled.div`
 export default function Home() {
   return (
     <>
-      {/* <TopLayer /> */}
-      <PageHearder />
-
-      {/* 
-      <BottomLayer /> */}
+      <TopLayer />
+      <BottomLayer /> 
+      {/* <PageHearder /> */}
     </>
   )
 }
