@@ -1,7 +1,8 @@
-import { ChainId, JSBI, Percent, Token, WETH } from '@pancakeswap/sdk'
+import { ChainId, JSBI, Percent, Token, WETH } from 'toolkit/sdk'
 import { BUSD, DAI, USDT, BTCB, CAKE, WBNB, UST, ETH, USDC } from './tokens'
 
-export const ROUTER_ADDRESS = '0x10ED43C718714eb63d5aA57B78B54704E256024E'
+// export const ROUTER_ADDRESS = '0x10ED43C718714eb63d5aA57B78B54704E256024E'
+export const ROUTER_ADDRESS = process.env.REACT_APP_ROUTER
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -20,6 +21,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
  */
 export const ADDITIONAL_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
   [ChainId.MAINNET]: {},
+  [ChainId.TESTNET]: {},
 }
 
 /**

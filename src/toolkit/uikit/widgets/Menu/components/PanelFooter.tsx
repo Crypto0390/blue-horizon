@@ -8,15 +8,37 @@ import CakePrice from './CakePrice'
 import ThemeSwitcher from './ThemeSwitcher'
 import SocialLinks from './SocialLinks'
 import LangSelector from './LangSelector'
-import Bottom  from './Bottom'
+import Bottom from './Bottom'
+import UserBlock from './UserBlock'
+
+import {
+  HomeIcon,
+  ConnectIcon,
+  FarmIcon,
+  NFTIcon,
+  SwapIcon,
+  SidebarConnect,
+  SidebarConnectBtn,
+  SidebarMoon,
+  Logo,
+  Avatar,
+  LangEN,
+  defaultLogo,
+  sidebarBalanceLeft,
+  sidebarDots,
+  bottomLeftIcon,
+  sidebarEllipse,
+} from '../../../../../components/Image'
+
 
 interface Props extends PanelProps, PushedProps {}
 
 const Container = styled.div`
-  flex: none;
-  padding: 8px 4px;
+  // flex: none;
+  // display: flex;
+  padding: 8px 4px 20px;
   background-color: ${({ theme }) => theme.nav.background};
-  border-top: solid 2px rgba(133, 133, 133, 0.1);
+  // border-top: solid 2px rgba(133, 133, 133, 0.1);
 `
 
 const SettingsEntry = styled.div`
@@ -34,6 +56,45 @@ const SocialEntry = styled.div`
   height: ${MENU_ENTRY_HEIGHT}px;
   padding: 0 16px;
 `
+const WalletWrapper: React.FC = styled.div`
+  background-image: linear-gradient(68deg, #08223c 10%, #0d3053 100%);
+  box-shadow: 0px 0px 3px black;
+  padding: 24px;
+  border-radius: 15px;
+  height: 200px;
+  width: 90%;
+  margin: auto;
+  color: white;
+  margin-bottom: 20px;
+  padding-top: 20px;
+`
+const LogoIcon = styled.img`
+  position: absolute;
+  left: 14px;
+  width: 100px;
+  margin-top: -40px;
+  margin-bo
+`
+const Background  =  styled.img`
+  position: relative;
+  float: right;
+  top: -5px;
+  left: 10px;
+`
+const Title = styled.p`
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px 0px;
+`
+const Text = styled.p`
+  font-size: 16px;
+  line-height: 1.4em;
+`
+
+const Custom = styled(UserBlock)`
+   margin-top: 20px;
+
+`
 
 const PanelFooter: React.FC<Props> = ({
   isPushed,
@@ -44,6 +105,9 @@ const PanelFooter: React.FC<Props> = ({
   currentLang,
   langs,
   setLang,
+  account,
+  login,
+  logout
 }) => {
   if (!isPushed) {
     return (
@@ -57,8 +121,16 @@ const PanelFooter: React.FC<Props> = ({
 
   return (
     <Container>
+
+      <WalletWrapper>
+        <LogoIcon src={defaultLogo}/>
+        <Background src={sidebarEllipse} alt="" />
+        <Title>Wallet</Title>
+        <Text>Connect to the BlueHorizon using the walllet of your choice</Text>
+        <Custom account={account} login={login} logout={logout} bottomBlock/>
+      </WalletWrapper>
+      <CakePrice cakePriceUsd={cakePriceUsd} />
       {/* <SocialEntry>
-        <CakePrice cakePriceUsd={cakePriceUsd} />
         <SocialLinks />
       </SocialEntry>
       <SettingsEntry>
@@ -68,7 +140,7 @@ const PanelFooter: React.FC<Props> = ({
       {/* <SettingsEntry>
         <LangSelector currentLang={currentLang} langs={langs} setLang={setLang} />
       </SettingsEntry> */}
-      <Bottom />
+      {/* <Bottom /> */}
     </Container>
   )
 }

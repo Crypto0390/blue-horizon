@@ -1,6 +1,6 @@
 // Set of helper functions to facilitate wallet setup
-
-import { BASE_BSC_SCAN_URL, BASE_URL } from 'config'
+import { ChainId } from 'toolkit/sdk'
+import { BASE_URL, BASE_BSC_SCAN_URLS } from 'config'
 import { nodes } from './getRpcUrl'
 
 /**
@@ -17,14 +17,14 @@ export const setupNetwork = async () => {
         params: [
           {
             chainId: `0x${chainId.toString(16)}`,
-            chainName: 'Binance Smart Chain Mainnet',
+            chainName: chainId === 56 ? 'Binance Smart Chain Mainnet' : chainId === 97? 'Binance Smart Chain Testnet': 'Unsupported Net',
             nativeCurrency: {
               name: 'BNB',
               symbol: 'bnb',
               decimals: 18,
             },
             rpcUrls: nodes,
-            blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
+            blockExplorerUrls: [`${BASE_BSC_SCAN_URLS[chainId as ChainId]}/`],
           },
         ],
       })

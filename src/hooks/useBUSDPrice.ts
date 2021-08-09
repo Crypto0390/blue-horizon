@@ -1,11 +1,12 @@
-import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from '@pancakeswap/sdk'
+import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from 'toolkit/sdk'
 import { useMemo } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { BUSD, CAKE } from '../config/constants/tokens'
 import { PairState, usePairs } from './usePairs'
 import { wrappedCurrency } from '../utils/wrappedCurrency'
 
-const BUSD_MAINNET = BUSD[ChainId.MAINNET]
+// const BUSD_MAINNET = BUSD[ChainId.MAINNET]
+const BUSD_MAINNET = BUSD[parseInt(process.env.REACT_APP_CHAIN_ID, 10) as ChainId]
 
 /**
  * Returns the price in BUSD of the input currency

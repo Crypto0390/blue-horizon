@@ -1,16 +1,18 @@
-import { ChainId, Token } from '@pancakeswap/sdk'
+import { ChainId, Token } from 'toolkit/sdk'
 
 export const CAKE: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
-    '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    // '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    process.env.REACT_APP_CAKETOKEN,
     18,
     'CAKE',
     'PancakeSwap Token',
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
-    '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
+    // '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
+    process.env.REACT_APP_CAKETOKEN,
     18,
     'CAKE',
     'PancakeSwap Token',
@@ -19,21 +21,23 @@ export const CAKE: { [chainId: number]: Token } = {
 export const BUSD: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
-    '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+    // '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+    process.env.REACT_APP_BUSDTOKEN,
     18,
     'BUSD',
     'Binance USD',
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
-    '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
+    // '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
+    process.env.REACT_APP_BUSDTOKEN,
     18,
     'BUSD',
     'Binance USD',
   ),
 }
 
-export const WBNB = new Token(ChainId.MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'WBNB', 'Wrapped BNB')
+export const WBNB = process.env.REACT_APP_CHAIN_ID==="56"? new Token(ChainId.MAINNET, process.env.REACT_APP_WBNB , 18, 'WBNB', 'Wrapped BNB'):new Token(ChainId.TESTNET, process.env.REACT_APP_WBNB , 18, 'WBNB', 'Wrapped BNB')
 export const DAI = new Token(ChainId.MAINNET, '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3', 18, 'DAI', 'Dai Stablecoin')
 export const USDT = new Token(ChainId.MAINNET, '0x55d398326f99059fF775485246999027B3197955', 18, 'USDT', 'Tether USD')
 export const BTCB = new Token(ChainId.MAINNET, '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c', 18, 'BTCB', 'Binance BTC')
@@ -67,8 +71,10 @@ const tokens = {
   cake: {
     symbol: 'CAKE',
     address: {
-      56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
-      97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
+      // 56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+      // 97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
+      56: process.env.REACT_APP_CAKETOKEN,
+      97: process.env.REACT_APP_CAKETOKEN,
     },
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
@@ -589,8 +595,10 @@ const tokens = {
   wbnb: {
     symbol: 'wBNB',
     address: {
-      56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-      97: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
+      // 56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+      // 97: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
+      56: process.env.REACT_APP_WBNB,
+      97: process.env.REACT_APP_WBNB,
     },
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
@@ -733,8 +741,10 @@ const tokens = {
   syrup: {
     symbol: 'SYRUP',
     address: {
-      56: '0x009cF7bC57584b7998236eff51b98A168DceA9B0',
-      97: '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9',
+      // 56: '0x009cF7bC57584b7998236eff51b98A168DceA9B0',
+      // 97: '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9',
+      56: process.env.REACT_APP_SYRUPBAR,
+      97: process.env.REACT_APP_SYRUPBAR,
     },
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
@@ -760,8 +770,10 @@ const tokens = {
   busd: {
     symbol: 'BUSD',
     address: {
-      56: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
-      97: '',
+      // 56: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+      // 97: '',
+      56: process.env.REACT_APP_BUSDTOKEN,
+      97: process.env.REACT_APP_BUSDTOKEN,
     },
     decimals: 18,
     projectLink: 'https://www.paxos.com/busd/',

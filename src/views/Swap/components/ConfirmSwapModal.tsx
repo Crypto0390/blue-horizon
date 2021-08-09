@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react'
-import { currencyEquals, Trade } from '@pancakeswap/sdk'
+import { currencyEquals, Trade } from 'toolkit/sdk'
 import { InjectedModalProps } from 'toolkit/uikit'
 import { useTranslation } from 'contexts/Localization'
 import TransactionConfirmationModal, {

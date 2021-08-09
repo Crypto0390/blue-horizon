@@ -1,27 +1,40 @@
-import React from "react";
-import Button from "../../../components/Button/Button";
-import { useWalletModal } from "../../WalletModal";
-import { Login } from "../../WalletModal/types";
+import React from 'react'
+import block from 'state/block'
+import styled from 'styled-components'
+import Button from '../../../components/Button/Button'
+import { useWalletModal } from '../../WalletModal'
+import { Login } from '../../WalletModal/types'
 
 interface Props {
-  account?: string;
-  login: Login;
-  logout: () => void;
+  account?: string
+  login: Login
+  logout: () => void
+  custom?: boolean
+  bottomBlock? : boolean
 }
 
-const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account);
-  const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
+
+const Custom = styled.div<{bottomBlock: boolean}>`
+  margin-top:  ${({ bottomBlock }) => bottomBlock?"20px":"inherit"};
+  button {
+    width: ${({ bottomBlock }) => bottomBlock?"100%":"inherit"}
+  }
+
+`
+
+const UserBlock: React.FC<Props> = ({ account, login, logout, bottomBlock=false }) => {
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account)
+  const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null
   return (
-    <div>
+    <Custom bottomBlock={bottomBlock}>
       {account ? (
         <Button
           scale="sm"
           variant="text"
           onClick={() => {
-            onPresentAccountModal();
+            onPresentAccountModal()
           }}
-          style={{backgroundColor:"#FFFFFF"}}
+          style={{ backgroundColor: '#FFFFFF'}}
         >
           {accountEllipsis}
         </Button>
@@ -29,20 +42,20 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
         <Button
           scale="sm"
           onClick={() => {
-            onPresentConnectModal();
+            onPresentConnectModal()
           }}
         >
           Connect
         </Button>
       )}
-    </div>
-  );
-};
+    </Custom>
+  )
+}
 
 export default React.memo(
   UserBlock,
   (prevProps, nextProps) =>
     prevProps.account === nextProps.account &&
     prevProps.login === nextProps.login &&
-    prevProps.logout === nextProps.logout
-);
+    prevProps.logout === nextProps.logout,
+)

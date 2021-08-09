@@ -16,6 +16,7 @@ const StyledPage = styled.div`
   background-image: url("/images/swap/bg.png");
   background-position: right;
   background-repeat: no-repeat;
+  background-size: 500px 100% !important;
   // background-size: cover;
   // height: 100%;
   ${({ theme }) => theme.mediaQueries.xs} {

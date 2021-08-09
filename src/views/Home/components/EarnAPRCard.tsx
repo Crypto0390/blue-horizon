@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Skeleton } from 'toolkit/uikit'
-import { ChainId } from '@pancakeswap/sdk'
+import { ChainId } from 'toolkit/sdk'
 import max from 'lodash/max'
 import { NavLink } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
