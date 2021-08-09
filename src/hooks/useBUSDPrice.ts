@@ -5,7 +5,8 @@ import { BUSD, CAKE } from '../config/constants/tokens'
 import { PairState, usePairs } from './usePairs'
 import { wrappedCurrency } from '../utils/wrappedCurrency'
 
-const BUSD_MAINNET = BUSD[ChainId.MAINNET]
+// const BUSD_MAINNET = BUSD[ChainId.MAINNET]
+const BUSD_MAINNET = BUSD[parseInt(process.env.REACT_APP_CHAIN_ID, 10) as ChainId]
 
 /**
  * Returns the price in BUSD of the input currency
