@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { Currency, ETHER, JSBI, TokenAmount } from '@pancakeswap/sdk'
+import { Currency, ETHER, JSBI, TokenAmount } from 'toolkit/sdk'
 import { Button, ChevronDownIcon, Text, AddIcon, useModal } from 'toolkit/uikit'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'

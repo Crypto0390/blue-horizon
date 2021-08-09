@@ -1,10 +1,10 @@
 import fs from 'fs'
 import { request, gql } from 'graphql-request'
 import BigNumber from 'bignumber.js'
-import { ChainId } from '@pancakeswap/sdk'
 import chunk from 'lodash/chunk'
 import { sub, getUnixTime } from 'date-fns'
 import farmsConfig from '../src/config/constants/farms'
+import { ChainId } from '../src/toolkit/sdk'
 
 const BLOCK_SUBGRAPH_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks'
 const STREAMING_FAST_ENDPOINT = 'https://bsc.streamingfast.io/subgraphs/name/pancakeswap/exchange-v2'
